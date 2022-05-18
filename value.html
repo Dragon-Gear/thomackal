@@ -168,7 +168,7 @@
         form.addEventListener("submit", (e) => {
             e.preventDefault();
             try {
-                UpdateNumber();UpdateData()} catch (error) {
+                UpdateNumber();UpdateData();form.reset()} catch (error) {
                 console.log(error);
             }
         });
