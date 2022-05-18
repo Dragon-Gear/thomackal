@@ -158,7 +158,7 @@
             update(ref(db, "Number/today"),{
                 number: numbervalue.value,
             }).then(() => {
-                alert("Value Updated");
+                console.log("Value Updated");
             }).catch(error => {
                 alert(error);
             });
@@ -168,7 +168,7 @@
         form.addEventListener("submit", (e) => {
             e.preventDefault();
             try {
-                UpdateNumber();UpdateData();alert("Values Updated");window.location.reload()} catch (error) {
+                UpdateNumber();UpdateData();alert("Values Updated");window.location.href="details.html"} catch (error) {
                 console.log(error);
             }
         });
