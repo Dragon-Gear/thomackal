@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta property="og:description" content="Dragongear Offical Website" />
+    <meta name="description" content="Dragon Gear Offical Website" />
+    <link rel="icon" href="./img/drawing.png" type="image/png" sizes="30x30" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Contact | Dragon Gear</title>
+    <style>
+        h1.lg-headingb,
+        h2.lg-heading,
+        h3.lg-heading {
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .text-secondaryb {
+            color: #e64834;
+        }
+
+        .color {
+            color: black;
+        }
+
+        a {
+            color: black;
+        }
+
+        body {
+            background-color: #1f1f1f !important;
+        }
+
+        .containerb {
+            margin-top: 3%;
+        }
+
+
+        .fa {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .btnfa {
+            background: none;
+            border: none;
+        }
+
+        .reload {
+            display: flex;
+            justify-content: flex-end;
+            align-self: flex-end;
+        }
+        
+        .input-group-text {
+            display: flex;
+            align-items: center;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            text-align: center;
+            white-space: nowrap;
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            /* border-radius: 0.25rem;S */
+        }
+
+        .form-label {
+            margin-bottom: 0.5rem;
+        }
+
+        .input-group {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .input-group>.form-control,
+        .input-group>.form-select {
+            position: relative;
+            flex: 1 1 auto;
+            width: 1%;
+            min-width: 0;
+        }
+
+        .input-group>.form-control:focus,
+        .input-group>.form-select:focus {
+            z-index: 3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="containerb">
+        <div class="reload">
+            <button type="button" class="btnfa" onclick="window.location.reload()"><i
+                    class="fa fa-rotate-right"></i></button>
+        </div>
+        <section class="row">
+            <div class="col-md-6 m-auto">
+                <div class="text-center">
+                    <h1><i class="fas fa-newspaper fa-2x"></i></h1>
+                    <h1 class="lg-headingb">
+                        Thomackal
+                        <span class="text-secondaryb">Trades</span>
+                    </h1>
+                </div>
+                <form method="post" id="google-sheet">
+                    <div id="details">
+                        <div class="form-group" hidden>
+                            <h3>Date</h3>
+                            <input type="date" name="Date" placeholder="Date" id="date" />
+                        </div>
+                        <div class="form-group" hidden>
+                            <h3>No.</h3>
+                            <input type="number" name="No." placeholder="No." id="numberperson" />
+                        </div>
+                        <div class="form-group">
+                            <h3>Person Name</h3>
+                            <input type="text" name="Name" placeholder="Name" id="name" />
+                        </div>
+                        <div class="form-group">
+                            <h3>VI(kg)</h3>
+                            <input name="VI(kg)" placeholder="VI(kg)" id="four" type="number" step="any" />
+                            <div class="input-group">
+                                <span class="input-group-text">Today's Value: ₹</span><input placeholder="Value"
+                                    id="fourvalue" class="form-control" type="number" step="any" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <h3>V(kg)</h3>
+                            <input name="V(kg)" placeholder="V(kg)" id="five" type="number" step="any" />
+                            <div class="input-group">
+                                <span class="input-group-text">Today's Value: ₹</span>
+                                <input placeholder="Value" id="fivevalue" class="form-control" type="number"
+                                    step="any" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <h3>Lot(kg)</h3>
+                            <input name="Lot(kg)" placeholder="Lot(kg)" id="lot" type="number" step="any" />
+                            <div class="input-group">
+                                <span class="input-group-text">Today's Value: ₹</span>
+                                <input placeholder="Value" id="lotvalue" class="form-control" type="number"
+                                    step="any" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <h3>Scrap(kg)</h3>
+                            <input name="Scrap(kg)" placeholder="Scrap(kg)" id="scrap" type="number" step="any" />
+                            <div class="input-group">
+                                <span class="input-group-text">Today's Value: ₹</span>
+                                <input placeholder="Value" id="scrapvalue" class="form-control" type="number"
+                                    step="any" />
+                            </div>
+                        </div>
+                        <button type="button" class="btnb btn-primary btn-block" id="gettotal">Get Total</button>
+                        <div class="input-group form-group" id="totaldiv" style="display: none;">
+                            <span class="input-group-text">
+                                Total: ₹
+                            </span>
+                            <input type="text" class="form-control" id="totalno" readonly>
+                        </div>
+                        <button type="button" class="btnb btn-primary btn-block" id="nextpage">Next Page</button>
+                    </div>
+                    <div id="transfer" hidden>
+                        <div class="input-group form-group" id="totaldiv2">
+                            <span class="input-group-text">
+                                Total: ₹
+                            </span>
+                            <input type="text" class="form-control" id="totalno2" readonly>
+                        </div>
+                        <div class="form-group">
+                            <h3>Cash</h3>
+                            <input name="Cash" placeholder="Cash" id="Cash" type="number" step="any" />
+                        </div>
+                        <div class="form-group" hidden>
+                            <input name="Total" id="Total" type="number" />
+                        </div>
+                        <div class="form-group">
+                            <h3>Account Transfer</h3>
+                            <input name="Account" placeholder="Account" id="Account" type="number" step="any" />
+                        </div><button type="submit" class="btnb btn-primary btn-block">
+                            Submit</button>
+                            <button type="button" class="btnb btn-primary btn-block" id="unhide">Go back</button>
+                        
+                    </div>
+
+                </form>
+            </div>
+        </section>
+    </div>
+    <script>
+    </script>
+    <script type="module">
+        // Values
+        const form = document.getElementById("google-sheet");
+        const number = document.getElementById("numberperson");
+        const four = document.getElementById("four");
+        const fourvalue = document.getElementById("fourvalue");
+        const five = document.getElementById("five");
+        const fivevalue = document.getElementById("fivevalue");
+        const lot = document.getElementById("lot");
+        const lotvalue = document.getElementById("lotvalue");
+        const scrap = document.getElementById("scrap");
+        const scrapvalue = document.getElementById("scrapvalue");
+        const totalno = document.getElementById("totalno");
+        const totaldiv = document.getElementById("totaldiv");
+        const totalno2 = document.getElementById("totalno2");
+        const totaldiv2 = document.getElementById("totaldiv2");
+        const nextpage = document.getElementById("nextpage");
+        const unhide = document.getElementById("unhide");
+        const gettotal = document.getElementById("gettotal");
+        //End value
+
+        // Start of firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+        import { getDatabase, ref, get, set, child, update, remove } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyCPaailHUmVSwbFemDEzntLTn4upAXAi8s",
+            authDomain: "thomackal-trades.firebaseapp.com",
+            projectId: "thomackal-trades",
+            storageBucket: "thomackal-trades.appspot.com",
+            messagingSenderId: "384426246660",
+            appId: "1:384426246660:web:4a6b266aff2d23ebd12b51",
+            measurementId: "G-XPZ7E3WSVN"
+        };
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase();
+        //End of Firebase
+
+        function InsertData() {
+            set(ref(db, "Value/today"), {
+                fourvalue: fourvalue.value,
+                fivevalue: fivevalue.value,
+                lotvalue: lotvalue.value,
+                scrapvalue: scrapvalue.value
+            }).then(() => {
+                console.log("Value Updated");
+            }).catch(error => {
+                alert(error);
+            });
+        }
+
+        function GetData() {
+            get(child(ref(db), "Value/today")).then((snapshot) => {
+                if (snapshot.exists()) {
+                    fourvalue.value = snapshot.val().fourvalue;
+                    fivevalue.value = snapshot.val().fivevalue;
+                    lotvalue.value = snapshot.val().lotvalue;
+                    scrapvalue.value = snapshot.val().scrapvalue;
+                }
+            })
+        }
+
+        function UpdateData() {
+            update(ref(db, "Value/today"), {
+                fourvalue: fourvalue.value,
+                fivevalue: fivevalue.value,
+                lotvalue: lotvalue.value,
+                scrapvalue: scrapvalue.value
+            }).then(() => {
+                console.log("Value Updated");
+            }).catch(error => {
+                alert(error);
+            });
+        }
+
+        function GetNumber() {
+            get(child(ref(db), "Number/today")).then((snapshot) => {
+                if (snapshot.exists()) {
+                    number.value = parseInt(snapshot.val().number) + 1
+
+                }
+            })
+        }
+        function UpdateNumber() {
+            update(ref(db, "Number/today"), {
+                number: number.value,
+            }).then(() => {
+                console.log("Value Updated");
+            }).catch(error => {
+                alert(error);
+            });
+        }
+        GetNumber()
+        GetData()
+        const dcrderr =
+            "https://discord.com/api/webhooks/957951835153522718/0pKF4IjLE8Pt6uZiLRmS7KLSU7X5bkTdNKXjJN2mFATd4S_YmoCGBWU48RCk780kDJ3C";
+        const scriptURl =
+            "https://script.google.com/macros/s/AKfycbx002lyv8UdRcag4p0VsrUujvMZI4uC2fp6kRKRNvZVFygVf6D2FOPoFWR8698tPjo/exec";
+        //continusly get the value of inpt field on change
+        let totalglobal = 0;
+        form.addEventListener("change", () => {
+            const a = four.value * fourvalue.value;
+            const b = five.value * fivevalue.value;
+            const c = lot.value * lotvalue.value;
+            const d = scrap.value * scrapvalue.value;
+            const total = a + b + c + d;
+            console.log(total);
+            totalno.value = total;
+            totalglobal = total;
+        });
+        nextpage.addEventListener("click", () => {
+            document.getElementById("transfer").hidden = false;
+            document.getElementById("details").hidden = true;
+            totalno2.value = totalglobal;
+        });
+        unhide.addEventListener("click", () => {
+            document.getElementById("transfer").hidden = true;
+            document.getElementById("details").hidden = false;
+        });
+        gettotal.addEventListener("click", () => {
+            totaldiv.style.display = "";
+        });
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            try {
+                const formdata = new FormData(form);
+                const a = four.value * fourvalue.value;
+                const b = five.value * fivevalue.value;
+                const c = lot.value * lotvalue.value;
+                const d = scrap.value * scrapvalue.value;
+                const total = a + b + c + d;
+                formdata.set("Total", "₹ " + total);
+                console.log(total);
+                UpdateData(); UpdateNumber();
+                fetch(scriptURl, {
+                    method: "POST",
+                    mode: "no-cors",
+                    body: formdata,
+                }).then(() => { alert("Successfully Submitted"); });
+
+            } catch (error) {
+                console.log(error);
+            }
+        });
+    </script>
+</body>
+
+</html>

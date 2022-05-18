@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta property="og:description" content="Dragongear Offical Website" />
+    <meta name="description" content="Dragon Gear Offical Website" />
+    <link rel="icon" href="./img/drawing.png" type="image/png" sizes="30x30" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    />
+    <title>Contact | Dragon Gear</title>
+    <style>
+      h1.lg-headingb,
+      h2.lg-heading,
+      h3.lg-heading {
+        font-size: 2rem;
+        color: #fff;
+      }
+
+      .text-secondaryb {
+        color: #e64834;
+      }
+
+      .color {
+        color: black;
+      }
+
+      a {
+        color: black;
+      }
+      body {
+        background-color: #1f1f1f !important;
+      }
+      .containerb {
+        margin-top: 10%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="containerb">
+      <section class="row">
+        <div class="col-md-6 m-auto">
+          <div class="text-center">
+            <h1><i class="fas fa-newspaper fa-2x"></i></h1>
+            <h1 class="lg-headingb">
+              Thomackal
+              <span class="text-secondaryb">Trades</span>
+            </h1>
+          </div>
+            <button type="button" class="btnb btn-primary btn-block" onclick="Todayvalue()">
+              Enter Today's Value
+            </button>
+            <button type="button" class="btnb btn-primary btn-block" onclick="Details()">
+              Enter Details of Customer
+            </button>
+        </div>
+      </section>
+    </div>
+    <script>
+      function Details(){
+        window.location.href = "details.html";
+      }
+      function Todayvalue(){
+        window.location.href = "value.html";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta property="og:description" content="Dragongear Offical Website" />
+    <meta name="description" content="Dragon Gear Offical Website" />
+    <link rel="icon" href="./img/drawing.png" type="image/png" sizes="30x30" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" />
+    <title>Today's Value | Dragon Gear</title>
+    <style>
+        h1.lg-headingb,
+        h2.lg-heading,
+        h3.lg-heading {
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .text-secondaryb {
+            color: #e64834;
+        }
+
+        .color {
+            color: black;
+        }
+
+        a {
+            color: black;
+        }
+
+        body {
+            background-color: #1f1f1f !important;
+        }
+
+        .containerb {
+            margin-top: 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="containerb">
+        <section class="row">
+            <div class="col-md-6 m-auto">
+                <div class="text-center">
+                    <h1><i class="fas fa-newspaper fa-2x"></i></h1>
+                    <h1 class="lg-headingb">
+                        Today's
+                        <span class="text-secondaryb">Value</span>
+                    </h1>
+                </div>
+                <form method="post" id="google-sheet">
+                    <div class="form-group" hidden>
+                        <input placeholder="No." id="number" type="number" value="0" />
+                    </div>
+                    <div class="form-group">
+                        <h3>VI(kg) Value</h3>
+                        <input placeholder="Value" id="fourvalue" type="number" step="any" />
+                    </div>
+                    <div class="form-group">
+                        <h3>V(kg) Value</h3>
+                        <input placeholder="Value" id="fivevalue" type="number" step="any"/>
+                    </div>
+                    <div class="form-group">
+                        <h3>Lot(kg) Value</h3>
+                        <input placeholder="Value" id="lotvalue" type="number" step="any"/>
+                    </div>
+                    <div class="form-group">
+                        <h3>Scrap(kg) Value</h3>
+                        <input placeholder="Value" id="scrapvalue" type="number" class="value" step="any"/>
+                    </div>
+                    <button type="submit" class="btnb btn-primary btn-block">
+                        Submit
+                    </button>
+                    <button type="button" class="btnb btn-primary btn-block" onclick="Goback()">Go back</button>
+                </form>
+
+            </div>
+        </section>
+    </div>
+    <script type="module">
+        // Start of firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+        import { getDatabase,ref,get,set,child,update,remove } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
+        const firebaseConfig = {
+          apiKey: "AIzaSyCPaailHUmVSwbFemDEzntLTn4upAXAi8s",
+          authDomain: "thomackal-trades.firebaseapp.com",
+          projectId: "thomackal-trades",
+          storageBucket: "thomackal-trades.appspot.com",
+          messagingSenderId: "384426246660",
+          appId: "1:384426246660:web:4a6b266aff2d23ebd12b51",
+          measurementId: "G-XPZ7E3WSVN"
+        };
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase();
+        //End of Firebase
+
+
+        // Getting the values from the form
+        const form = document.getElementById("google-sheet");
+        const fourvalue = document.getElementById("fourvalue");
+        const fivevalue = document.getElementById("fivevalue");
+        const lotvalue = document.getElementById("lotvalue");
+        const scrapvalue = document.getElementById("scrapvalue");
+        const numbervalue = document.getElementById("number");
+        
+        function InsertData(){
+            set(ref(db, "Value/today"),{
+                fourvalue: fourvalue.value,
+                fivevalue: fivevalue.value,
+                lotvalue: lotvalue.value,
+                scrapvalue: scrapvalue.value
+            }).then(() => {
+                console.log("Value Updated");
+            }).catch(error => {
+                alert(error);
+            });
+        }
+
+        function GetData(){
+            get(child(ref(db),"Value/today")).then((snapshot)=>{
+                if(snapshot.exists()){
+                    fourvalue.value=snapshot.val().fourvalue;
+                    fivevalue.value=snapshot.val().fivevalue;
+                    lotvalue.value=snapshot.val().lotvalue;
+                    scrapvalue.value=snapshot.val().scrapvalue;
+                }
+            })
+        }
+
+        function UpdateData(){
+            update(ref(db, "Value/today"),{
+                fourvalue: fourvalue.value,
+                fivevalue: fivevalue.value,
+                lotvalue: lotvalue.value,
+                scrapvalue: scrapvalue.value
+            }).then(() => {
+                console.log("Value Updated");
+            }).catch(error => {
+                alert(error);
+            });
+        }
+        
+        // function InsertNumber(){
+        //     set(ref(db, "Number/today"),{
+        //         number: numbervalue.value,
+        //     }).then(() => {
+        //         alert("Number Updated");
+        //     }).catch(error => {
+        //         alert(error);
+        //     });
+        // }
+        
+        function UpdateNumber(){
+            update(ref(db, "Number/today"),{
+                number: numbervalue.value,
+            }).then(() => {
+                alert("Value Updated");
+            }).catch(error => {
+                alert(error);
+            });
+        }
+        
+        GetData()
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            try {
+                UpdateNumber();UpdateData()} catch (error) {
+                console.log(error);
+            }
+        });
+      </script>
+      <script>function Goback(){
+        window.location.href = "/";
+      }</script>
+</body>
+
+</html>
