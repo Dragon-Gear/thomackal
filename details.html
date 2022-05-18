@@ -342,7 +342,7 @@
                     method: "POST",
                     mode: "no-cors",
                     body: formdata,
-                }).then(() => { alert("Successfully Submitted"); });
+                }).then(() => { alert("Successfully Submitted");window.location.reload(); });
 
             } catch (error) {
                 console.log(error);
